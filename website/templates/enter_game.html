@@ -1,0 +1,248 @@
+{% extends "base.html" %} {% block title %}Enter New Game{% endblock %} {% block
+    content %}
+    <style>
+      .players {
+        display: none;
+      }
+    </style>
+    <form method="POST">
+      <br>
+      <h3 align="center">Enter New Game</h3>
+      <br>
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input
+          type="int"
+          class="form-control"
+          id="id"
+          name="id"
+          placeholder="Enter id"
+        />
+      </div>
+      <div class="form-group">
+        <label for="game">Game</label>
+        <input
+          type="text"
+          class="form-control"
+          id="game"
+          name="game"
+          placeholder="Enter name of game"
+        />
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date"
+          name="date"
+          placeholder="Enter the date of the game"
+        />
+      </div>
+      <div class="form-group">
+        <label for="players">Number of players?</label>
+        <input
+          type="number"
+          class="form-control"
+          id="num_of_players"
+          name="num_of_players"
+          min="1"
+          max="6"
+          step="1"
+          onchange="players_inp()"
+        />
+      </div>
+      <br>
+      <div class="players" id="player1">
+      <br>
+      <div class="form-group">
+        <label for="player1">Player 1</label>
+        <input
+          type="text"
+          class="form-control"
+          id="player1_inp"
+          name="player1"
+          placeholder="Enter name of player 1"
+        />
+      </div>
+      <div class="form-group">
+        <label for="points1">Points for player 1</label>
+        <input
+          type="number"
+          class="form-control"
+          id="points1_inp"
+          name="points1"
+          placeholder="Enter points for player 1"
+        />
+      </div>
+      </div>
+      <div class="players" id="player2">
+      <br>
+      <div class="form-group">
+        <label for="player2">Player 2</label>
+        <input
+          type="text"
+          class="form-control"
+          id="player2_inp"
+          name="player2"
+          placeholder="Enter name of player 2"
+        />
+      </div>
+      <div class="form-group">
+        <label for="points2">Points for player 2</label>
+        <input
+          type="number"
+          class="form-control"
+          id="points2_inp"
+          name="points2"
+          placeholder="Enter points for player 2"
+        />
+      </div>
+      </div>
+      <div class="players" id="player3">
+      <br>
+      <div class="form-group">
+        <label for="player3">Player 3</label>
+        <input
+          type="text"
+          class="form-control"
+          id="player3_inp"
+          name="player3"
+          placeholder="Enter name of player 3"
+        />
+      </div>
+      <div class="form-group">
+        <label for="points3">Points for player 3</label>
+        <input
+          type="number"
+          class="form-control"
+          id="points3_inp"
+          name="points3"
+          placeholder="Enter points for player 3"
+        />
+      </div>
+      </div>
+      <div class="players" id="player4">
+      <br>
+      <div class="form-group">
+        <label for="player4">Player 4</label>
+        <input
+          type="text"
+          class="form-control"
+          id="player4_inp"
+          name="player4"
+          placeholder="Enter name of player 4"
+        />
+      </div>
+      <div class="form-group">
+        <label for="points4">Points for player 4</label>
+        <input
+          type="number"
+          class="form-control"
+          id="points4_inp"
+          name="points4"
+          placeholder="Enter points for player 4"
+        />
+      </div>
+      </div>
+      <div class="players" id="player5">
+      <br>
+      <div class="form-group">
+        <label for="player5">Player 5</label>
+        <input
+          type="text"
+          class="form-control"
+          id="player5_inp"
+          name="player5"
+          placeholder="Enter name of player 5"
+        />
+      </div>
+      <div class="form-group">
+        <label for="points5">Points for player 5</label>
+        <input
+          type="number"
+          class="form-control"
+          id="points5_inp"
+          name="points5"
+          placeholder="Enter points for player 5"
+        />
+      </div>
+      </div>
+      <div class="players" id="player6">
+      <br>
+      <div class="form-group">
+        <label for="player6">Player 6</label>
+        <input
+          type="text"
+          class="form-control"
+          id="player6_inp"
+          name="player6"
+          placeholder="Enter name of player 6"
+        />
+      </div>
+      <div class="form-group">
+        <label for="points6">Points for player 6</label>
+        <input
+          type="number"
+          class="form-control"
+          id="points6_inp"
+          name="points6"
+          placeholder="Enter points for player 6"
+        />
+      </div>
+      </div>
+      <div align="right" class="players" id="button1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <br>
+      </div>
+    </form>
+
+    <script>
+      const num = document.getElementById('num_of_players');
+      const button = document.getElementById('button1');
+      const player1 = document.getElementById('player1');
+      const player2 = document.getElementById('player2');
+      const player3 = document.getElementById('player3');
+      const player4 = document.getElementById('player4');
+      const player5 = document.getElementById('player5');
+      const player6 = document.getElementById('player6');
+      function players_inp() {
+        if (num.value >= 1) {
+          player1.style.display = "block";
+          player2.style.display = "none";
+          player3.style.display = "none";
+          player4.style.display = "none";
+          player5.style.display = "none";
+          player6.style.display = "none";
+          button.style.display = "block";
+        }
+        if (num.value >= 2) {
+          player2.style.display = "block";
+          player3.style.display = "none";
+          player4.style.display = "none";
+          player5.style.display = "none";
+          player6.style.display = "none";
+        }
+        if (num.value >= 3) {
+          player3.style.display = "block";
+          player4.style.display = "none";
+          player5.style.display = "none";
+          player6.style.display = "none";
+        }
+        if (num.value >= 4) {
+          player4.style.display = "block";
+          player5.style.display = "none";
+          player6.style.display = "none";
+        }
+        if (num.value >= 5) {
+          player5.style.display = "block";
+          player6.style.display = "none";
+        }
+        if (num.value >= 6) {
+          player6.style.display = "block";
+        }
+      }
+    </script>
+
+
+    {% endblock %}

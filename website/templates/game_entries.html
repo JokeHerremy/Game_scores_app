@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}Game Entries{% endblock %} {% block
+    content %}
+<br>
+<h1 align="center">Game Entries</h1>
+<ul class="list-group list-group-flush" id="games">
+  {% for game in games %}
+  <li class="list-group-item">
+    {{ game.game }}
+    <button type="button" class="close">
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
