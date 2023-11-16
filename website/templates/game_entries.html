@@ -5,8 +5,9 @@
 <ul class="list-group list-group-flush" id="games">
   {% for game in games %}
   <li class="list-group-item">
-    {{ game.game }}
-    <button type="button" class="close">
+      {{ game.date }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ game.game }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ game.date }}
+    <button type="button" class="close" onclick="deleteGame({{ game.id }})">
+      <span aria-hidden="true">&times;</span>
     </button>
   </li>
   {% endfor %}
