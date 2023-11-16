@@ -33,10 +33,16 @@ def enter_game():
 def enter_player():
     if request.method == 'POST':
         data = request.form.get('name')
-        new_player = Player(name=data)
-        db.session.add(new_player)
-        db.session.commit()
-        flash('New Player added', category='succes')
+
+        player = Player.query.filter_by(name=data).first()
+        if player:
+            flash('player already exists', category='error')
+        else:
+            new_player = Player(name=data)
+            db.session.add(new_player)
+            db.session.commit()
+            flash('New Player added', category='succes')
+
     return render_template('enter_player.html')    
 
 @views.route('/player_entries', methods=['GET', 'DELETE'])
