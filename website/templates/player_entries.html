@@ -2,14 +2,14 @@
     content %}
 <br>
 <h1 align="center">Player Entries</h1>
-<ul class="list-group list-group-flush" id="players">
+<ul class="list-group" id="players">
   {% for player in players %}
   <li class="list-group-item">
 
-    <ul class="nav nav-tabs">
-      <a class="nav-link" id="login" href="/player/{{ player.id }}">
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item" >
        {{ player.name }}
-      </a>
+      </li>
       <button type="button" class="close" onclick="deletePlayer({{ player.id }})">
         <span aria-hidden="true">&times;</span>
       </button>
